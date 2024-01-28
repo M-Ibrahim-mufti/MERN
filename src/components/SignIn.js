@@ -18,7 +18,7 @@ function SignIn(props) {
         props.getData(sendActivationData)
     };
 
-    const handleSubmit = (event) => {
+    const handleSignIn = (event) => {
         event.preventDefault()
 
         console.log("Email = ", emailRef.current.value)
@@ -64,7 +64,7 @@ function SignIn(props) {
                         </a>
                     </div>
                 </div>
-                <form className="flex flex-col w-full" onSubmit={handleSubmit}>
+                <form className="flex flex-col w-full" onSubmit={handleSignIn}>
                     <div className="flex flex-col" >
                         <label htmlFor="email" className="text-left">Email</label>
                         <input type="email" name="email" ref={emailRef} placeholder="Enter your email" className="inputs-border outline-none border-none text-lg bg-transparent py-2 px-2 my-3"/>
