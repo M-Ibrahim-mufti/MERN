@@ -10,7 +10,7 @@ function Navbar() {
         setActiveLink(event.currentTarget.text)
     }
     return(
-        <div className="fixed w-screen h-14  text-white z-10">
+        <div id="navbar" className="fixed w-screen h-14  text-white z-10">
             <div className="container h-full max-w-5xl mx-auto text-center flex items-center">
                 <div className="w-1/2 flex justify-start ">
                     <h2 className="font-bold">My<em className="font-normal">App</em></h2>

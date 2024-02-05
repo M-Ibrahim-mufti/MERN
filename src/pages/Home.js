@@ -1,6 +1,7 @@
 import '../App.css';
 import React from 'react';
 import Header from '../components/Header'
+import Footer from '../components/footer';
 import { useState } from 'react';
 
 function Home () {
@@ -14,9 +15,14 @@ function Home () {
         },2500)
     }
     return(
+    <div>
         <header className={`bg-header ${ bgFix ? 'bg-stay' : '' }`} onMouseEnter={handleContent}  onTransitionEnd={() => setbgFix(true) }>
             <Header/>
         </header>
+        <footer className='bg-[#0b273d]'>
+            <Footer/>
+        </footer>
+    </div>
     );
 }
 
