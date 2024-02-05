@@ -138,37 +138,29 @@ input[type="checkbox"]:checked {
   transition: all .4s ease;
 }
 
+/* Home */
+
 .bg-header{
   position: relative;
-  background-image: url('./Assets/AI_Spectrum.svg'), linear-gradient(194deg, rgba(11,39,61,1) 38%, rgba(17,74,113,1) 71%);;
+  background-image: url('./Assets/AI_Spectrum.svg');
+  background-color: rgba(11,39,61,1);
   background-repeat:no-repeat;
   background-size:cover;
   overflow: hidden;
+  background-position-y: 0%; 
+  transition: background-position-y 2.5s linear;
 }
+
 .bg-header:hover{
-  animation: bg-up 1s linear forwards;
-}
-@keyframes bg-up{
-  from {
-    background-position-y: 0%;
-  }
-  to {
-    background-position-y: 45%;
-  }
-}
-.bg-header:not(:hover){
-  animation: bg-down 2s linear forwards
+  background-position-y: 45% ;
 }
 
-@keyframes bg-down {
-  from {
-    background-position-y: 45%;
-  }
-  to {
-    background-position-y: 0%;
-  }
+.bg-stay{
+  background-position-y: 45% !important;
 }
-
+/* .bg-header:not(:hover) {
+  background-position-y: 0%;
+} */
 
 .bg-header::before{
   content: '';
@@ -177,11 +169,11 @@ input[type="checkbox"]:checked {
   width: 20px;
   top:0;
   left:-110%;
-  filter: blur(30px);
+  filter: blur(45px);
   transform: translate(-50%, -50%) rotateZ(108deg);
   background-color: rgb(255, 255, 255, 0.3);
   border:none;
-  animation: shine 7s linear infinite;
+  animation: shine 10s linear infinite;
 }
 
 @keyframes shine {
@@ -205,10 +197,52 @@ input[type="checkbox"]:checked {
 
 .img-shadows{
   filter: 
-  drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3)) 
   drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3))
   drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.3))
   drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.3))
-  drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.3))
-  drop-shadow(0px 32px 64px rgba(0, 0, 0, 0.3));
+  drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.3));
+}
+
+.img-animation {
+  animation: img-move .7s linear forwards;
+}
+
+@keyframes img-move{
+  from {
+    transform: translateX(-310px);
+  }
+  to {
+
+    transform: translateX(130px);
+  }
+}
+.img-shake {
+  animation: shake 2s infinite
+}
+@keyframes shake {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+  
+}
+.header-text-move{
+  animation: text-move .7s linear forwards ;
+}
+
+@keyframes text-move {
+  from {
+    opacity: 0;
+    transform: translateX(-1080px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-300px);
+  }
+  
 }
