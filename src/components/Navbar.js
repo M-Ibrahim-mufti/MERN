@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 
 
 function Navbar() {
+
     const [activeLink, setActiveLink] = useState("")
     const activeLinks = (event) => {
+        console.log(window.location.pathname)
         setActiveLink(event.currentTarget.text)
     }
     return(
-        <div className="fixed w-screen h-14 bg-nav text-white z-10">
+        <div className="fixed w-screen h-14  text-white z-10">
             <div className="container h-full max-w-5xl mx-auto text-center flex items-center">
                 <div className="w-1/2 flex justify-start ">
                     <h2 className="font-bold">My<em className="font-normal">App</em></h2>

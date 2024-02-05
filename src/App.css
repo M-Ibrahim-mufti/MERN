@@ -5,11 +5,6 @@
   padding-bottom: 1px;
 }
 
-.bg-nav{
-  background: rgb(2,0,36);
-  background: linear-gradient(10deg, rgba(2,0,36,1) 0%, rgba(30,41,59,1) 46%, rgba(0,87,105,1) 76%);
-}
-
 /* Authenticate */
 
 .auth-img{
@@ -141,4 +136,79 @@ input[type="checkbox"]:checked {
 .icon-box:hover g{
   fill:#00cccc;
   transition: all .4s ease;
+}
+
+.bg-header{
+  position: relative;
+  background-image: url('./Assets/AI_Spectrum.svg'), linear-gradient(194deg, rgba(11,39,61,1) 38%, rgba(17,74,113,1) 71%);;
+  background-repeat:no-repeat;
+  background-size:cover;
+  overflow: hidden;
+}
+.bg-header:hover{
+  animation: bg-up 1s linear forwards;
+}
+@keyframes bg-up{
+  from {
+    background-position-y: 0%;
+  }
+  to {
+    background-position-y: 45%;
+  }
+}
+.bg-header:not(:hover){
+  animation: bg-down 2s linear forwards
+}
+
+@keyframes bg-down {
+  from {
+    background-position-y: 45%;
+  }
+  to {
+    background-position-y: 0%;
+  }
+}
+
+
+.bg-header::before{
+  content: '';
+  position:absolute;
+  height: 100%;
+  width: 20px;
+  top:0;
+  left:-110%;
+  filter: blur(30px);
+  transform: translate(-50%, -50%) rotateZ(108deg);
+  background-color: rgb(255, 255, 255, 0.3);
+  border:none;
+  animation: shine 7s linear infinite;
+}
+
+@keyframes shine {
+  from {
+    top: 0%;
+    left:110%;
+    height: 100%;
+
+  } 
+  50% {
+    top: 50%;
+    left: 56%;
+    height: 500%;
+  }
+  to {
+    top: 100%;
+    left: 0%;
+    height: 100%;
+  }
+}
+
+.img-shadows{
+  filter: 
+  drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3)) 
+  drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3))
+  drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.3))
+  drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.3))
+  drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.3))
+  drop-shadow(0px 32px 64px rgba(0, 0, 0, 0.3));
 }

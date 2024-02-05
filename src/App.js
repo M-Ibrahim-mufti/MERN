@@ -7,13 +7,23 @@ import Blogs from "./pages/Blogs"
 import Contact from "./pages/Contact"
 import About from "./pages/About"
 import Authenticate from "./pages/Authenticate"
-
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [activeNav, setNavValue] = useState(false);
+  useEffect(()=> {
+    if (window.location.pathname == "/Authentication"){
+      debugger
+      setNavValue(false)
+    }
+    else {
+      setNavValue(true)
+    }
+  })
   return (
     <BrowserRouter>
       <div>
-        {/* <Navbar/> */}
+        {activeNav && <Navbar/>}
         <div className=''>
             <Routes>
               <Route exact path='/' element={<Home />}></Route>
