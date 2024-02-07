@@ -244,5 +244,21 @@ input[type="checkbox"]:checked {
     opacity: 1;
     transform: translateX(-300px);
   }
-  
 }
+
+.heading-animation{
+  font-size: 0px;
+  animation: enlarger .7s linear forwards;
+}
+
+@keyframes enlarger {
+  from {
+    opacity: 0;
+    font-size: 0px;
+  }
+  to {
+    opacity: 1;
+    font-size: 40px;
+  }
+}
+

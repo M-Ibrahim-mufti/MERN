@@ -19,7 +19,7 @@ function Home () {
         <header className={`bg-header ${ bgFix ? 'bg-stay' : '' }`} onMouseEnter={handleContent}  onTransitionEnd={() => setbgFix(true) }>
             <Header/>
         </header>
-        <footer className='bg-[#0b273d]'>
+        <footer >
             <Footer/>
         </footer>
     </div>

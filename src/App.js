@@ -22,7 +22,7 @@ function App() {
   })
   return (
     <BrowserRouter>
-      <div>
+      <div className='bg-body'>
         {activeNav && <Navbar/>}
         <div className=''>
             <Routes>
