@@ -12,8 +12,7 @@ import { useEffect, useState } from 'react';
 function App() {
   const [activeNav, setNavValue] = useState(false);
   useEffect(()=> {
-    if (window.location.pathname == "/Authentication"){
-      debugger
+    if (window.location.pathname === "/Authentication"){
       setNavValue(false)
     }
     else {

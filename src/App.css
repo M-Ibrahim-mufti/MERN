@@ -1,8 +1,43 @@
+/* universal styling */
+
+body {
+  background-color: rgba(11,39,61,1);
+  color: rgb(155,155,155);
+}
+html::-webkit-scrollbar{
+  width: 7px;
+}
+/* Track */
+html::-webkit-scrollbar-track {
+  background: rgba(17,58,89,0.5);
+}
+
+/* Handle */
+html::-webkit-scrollbar-thumb {
+  background: rgba(11,39,61,0.7);
+}
+
+/* Handle on hover */
+html::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.7);
+}
 /* Navbar */
 
 .nav-ul{
   border-bottom: 1px solid white;
   padding-bottom: 1px;
+}
+.bg-nav {
+  background: linear-gradient(23deg, rgba(17,58,89,1) 39%, rgba(11,39,61,1) 61%);
+  animation: animate-nav .5s linear forwards;
+}
+@keyframes animate-nav {
+  0% {
+    height: 56px;
+  }  
+  100% {
+    height: 46px;
+  }
 }
 
 /* Authenticate */
@@ -19,7 +54,7 @@
   border: 2px solid rgba(0,204,200,0.8);
   border-radius: 15px;
   backdrop-filter: blur(20px);
-  box-shadow: 0 0 10px rgba(0,204,200,0.8);
+  box-shadow: inset 0 0 10px rgba(0,204,200,0.8);
   filter: brightness(100%);
 }
 .inputs-border{
@@ -148,19 +183,16 @@ input[type="checkbox"]:checked {
   background-size:cover;
   overflow: hidden;
   background-position-y: 0%; 
-  transition: background-position-y 2.5s linear;
 }
 
-.bg-header:hover{
-  background-position-y: 45% ;
+.bg-positioning {
+  background-position-y: 45%;
+  transition: background-position-y 2.5s linear;
 }
 
 .bg-stay{
   background-position-y: 45% !important;
 }
-/* .bg-header:not(:hover) {
-  background-position-y: 0%;
-} */
 
 .bg-header::before{
   content: '';
@@ -169,11 +201,11 @@ input[type="checkbox"]:checked {
   width: 20px;
   top:0;
   left:-110%;
-  filter: blur(45px);
+  filter: blur(35px);
   transform: translate(-50%, -50%) rotateZ(108deg);
   background-color: rgb(255, 255, 255, 0.3);
   border:none;
-  animation: shine 10s linear infinite;
+  animation: shine 9s linear infinite;
 }
 
 @keyframes shine {
@@ -207,58 +239,191 @@ input[type="checkbox"]:checked {
   animation: img-move .7s linear forwards;
 }
 
-@keyframes img-move{
-  from {
-    transform: translateX(-310px);
-  }
-  to {
+.img-move {
+  transform: translateX(0);
+  transition: transform 1s linear;
+}
 
-    transform: translateX(130px);
-  }
+.brain-pulsing{
+  animation: brain-pulses 1s linear infinite
 }
-.img-shake {
-  animation: shake 2s infinite
-}
-@keyframes shake {
+
+@keyframes brain-pulses{
   0% {
-    transform: translateY(0);
+    transform: scale(1);
   }
   50% {
-    transform: translateY(20px);
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+#h-text h2, #h-text p{
+  position: relative;
+}
+
+#h-text h2::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  width:0;
+  color: white;
+  height:100%;
+  content:attr(data-text);
+  overflow: hidden;
+  animation:animate-text 10s linear infinite
+}
+
+@keyframes animate-text {
+  0%,10%,100% {
+    width: 0;
+  }  
+  70%, 90% {
+    width:100.45%;
+  }
+}
+
+#h-text p::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  width:0;
+  color: white;
+  height:100%;
+  content:attr(data-text);
+  overflow: hidden;
+  animation:animate-text 10s linear infinite;
+}
+
+.card-styling {
+  border-radius: 15px;
+  background-color: rgba(17,58,89,1);
+  transition: background-color .5s linear;
+  box-shadow: inset 0 0 10px 5px 
+              rgba(0, 0, 0, 0.5);
+}
+
+.card-img {
+  animation: bouncing-img .6s linear infinite;
+}
+
+@keyframes bouncing-img {
+  0% {
+    transform: translateY(0);
+  }  
+  50% {
+    transform: translateY(10px);
   }
   100% {
     transform: translateY(0);
   }
-  
-}
-.header-text-move{
-  animation: text-move .7s linear forwards ;
 }
 
-@keyframes text-move {
-  from {
-    opacity: 0;
-    transform: translateX(-1080px);
+.card-borders{
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(17,58,89,0.5);
+  border-radius:15px;
+  transition: all .3s linear;
+  z-index: 10;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0 , 0.5),
+              10px 0 20px -5px rgba(0, 0, 0 , 0.5);
+}
+
+.card-borders::before {
+  position: absolute;
+  content: "";
+  width: 200px;
+  height: 160%;
+  background-color: white;
+  z-index: -10;
+  animation: rotation 10s linear infinite;
+  transform-origin: center;
+
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
   }
-  to {
-    opacity: 1;
-    transform: translateX(-300px);
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-.heading-animation{
-  font-size: 0px;
-  animation: enlarger .7s linear forwards;
+.card-borders button:hover {
+  box-shadow: inset 0 0 10px 5px 
+              rgba(0, 0, 0, 0.5);
+  transition:all .4s linear;
+  background-color: rgb(255,255,255);
+  font-weight:900;
+  color: black;
 }
 
-@keyframes enlarger {
-  from {
-    opacity: 0;
-    font-size: 0px;
-  }
-  to {
-    opacity: 1;
-    font-size: 40px;
-  }
+.card-borders button:not(:hover) {
+  box-shadow: none;
+  transition: all .4s linear;
+  background-color: transparent;
+  color: white;
+  font-weight:normal;
 }
+
+.side-img1, .side-img2, .side-img3 {
+  position: relative;
+  overflow: hidden;
+}
+
+.side-img1:hover, .side-img2:hover, .side-img3:hover {
+  transform: rotate(0deg) scale(1.2);
+  box-shadow: 0 -10px 20px -5px rgba(0,0,0,0.75),
+              0 10px 20px -5px rgba(0,0,0,0.75),
+              10px 0 20px -5px rgba(0,0,0,0.75);
+  transition: all .4s linear;
+}
+
+.side-img1:not(:hover), .side-img2:not(:hover), .side-img3:not(:hover) {
+  transform: rotate(45deg);
+  transition: transform .4s linear;
+}
+
+.side-img1::before, .side-img3::before {
+  position: absolute;
+  content: '';
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background-position: center center;
+  background-size: contain;
+}
+.side-img2::before{
+  position: absolute;
+  content: '';
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background-position: center center;
+  background-size: contain;
+}
+
+.side-img1::before {
+  background-image: url('./Assets/section_2_HTML.webp');
+}
+
+.side-img2::before {
+  background-image: url('./Assets/section_2_CSS.png');
+}
+
+.side-img3::before {
+  background-image: url('./Assets/section_2_JSwebp.webp');
+}
+
 

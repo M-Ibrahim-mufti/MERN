@@ -1,28 +1,39 @@
 import '../App.css';
 import React from 'react';
-import Header from '../components/Header'
-import Footer from '../components/footer';
+import Header from '../components/Header'; 
 import { useState } from 'react';
+import HeaderCards from '../components/HeaderCards';
+import SideImage from '../components/SideImage';
 
 function Home () {
-    const [bgFix, setbgFix] = useState(false)
-    let brain = document.getElementById('brain')
-
-    const handleContent = () => {
-        setTimeout(() =>{
-            brain.classList.remove('opacity-0', '-z-10')
-            brain.classList.add('opacity-100', 'transition-opacity', 'duration-300', 'ease-linear', 'z-10')
-        },2500)
+    const [bgStay, setBgStay] = useState(false)
+    const brainDisplay = () => {
+        setBgStay(true)
+        let brain = document.getElementById("brain")
+        brain.classList.remove('-z-10')
+        brain.firstChild.classList.remove('opacity-0')
+        brain.firstChild.classList.add('opacity-1', 'transition-opacity', 'duration-1000', 'linear' )
+        setTimeout(() => {
+            brain.classList.add('brain-pulsing')
+        }, 2500);
     }
+
+    const bgPositioning = (e) => {
+        e.currentTarget.classList.add('bg-positioning')
+    }
+    
     return(
-    <div>
-        <header className={`bg-header ${ bgFix ? 'bg-stay' : '' }`} onMouseEnter={handleContent}  onTransitionEnd={() => setbgFix(true) }>
-            <Header/>
-        </header>
-        <footer >
-            <Footer/>
-        </footer>
-    </div>
+        <div>
+            <header className={`bg-header ${bgStay ? 'bg-stay' : ''} `} onMouseEnter={bgPositioning} onTransitionEnd={brainDisplay}>
+                <Header/>
+            </header>
+            <section className='py-20'>
+                <HeaderCards/>
+            </section>
+            <section className='py-20'>
+                <SideImage/>
+            </section>
+        </div>
     );
 }
 

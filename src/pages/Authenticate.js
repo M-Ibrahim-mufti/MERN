@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import AuthImage from "../Assets/authenticate.png"
 import SignIn from "../components/SignIn"
 import SignUp from "../components/SignUp"
@@ -29,8 +29,8 @@ function Authenticate() {
 
     return(
         <section className="bg-auth text-white flex justify-center items-center">
-            <img className="w-screen h-screen auth-img " src={AuthImage}></img>
-            <div className="container max-w-lg absolute">
+            <img className="w-screen h-screen auth-img " src={AuthImage} alt="Authentication"/>
+            <div className="container max-w-lg py-10 absolute overflow-hidden">
                 <div id="signIn" className="max-w-full auth-cont">
                     <SignIn getData={toggleActive}/>
                 </div>
