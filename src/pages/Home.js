@@ -1,14 +1,44 @@
 import '../App.css';
 import React from 'react';
-
+import { useState } from 'react';
+import Header from '../components/Header'; 
+import HeaderCards from '../components/HeaderCards';
+import SideImage from '../components/SideImage';
+import Footer from '../components/footer';
 
 function Home () {
+    const [bgStay, setBgStay] = useState(false);
+    const brainDisplay = () => {
+        setBgStay(true)
+        let brain = document.getElementById("brain");
+        brain.classList.remove('-z-10');
+        brain.firstChild.classList.remove('opacity-0');
+        brain.firstChild.classList.add('opacity-1', 'transition-opacity', 'duration-1000', 'linear' );
+        setTimeout(() => {
+            brain.classList.add('brain-pulsing');
+        }, 2500);
+    };
+
+    const bgPositioning = (e) => {
+        e.currentTarget.classList.add('bg-positioning');
+    };
+    
     return(
-        <div className='w-screen h-screen flex justify-center items-center'>
-            <div className='container max-w-md border-2 border-black w-28 h-10 border-prac'>
-            </div>
+        <div>
+            <header className={`bg-header ${bgStay ? 'bg-stay' : ''} `} onMouseEnter={bgPositioning} onTransitionEnd={brainDisplay}>
+                <Header/>
+            </header>
+            <section className='py-20'>
+                <SideImage/>
+            </section>
+            <section className='py-20'>
+                <HeaderCards/>
+            </section>
+            <footer className='py-10 bg-footer'>
+                <Footer/>
+            </footer>
         </div>
     );
 }
 
-export default Home
+export default Home;
