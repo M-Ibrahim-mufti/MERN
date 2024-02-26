@@ -1,5 +1,18 @@
-import React from "react";
+import React, {useRef} from "react";
+
+
 function SignIn(props) {
+    
+    // Variables
+    const emailRef = useRef()
+    const passwordRef = useRef()
+    const rememberRef = useRef()
+
+    const iconStyle={
+        mixBlendMode:"normal"
+    };
+
+    //Methods
 
     const sendActivation = () => {
         const sendActivationData = "SignIn";
@@ -44,18 +57,18 @@ function SignIn(props) {
                         </a>
                     </div>
                 </div>
-                <form className="flex flex-col w-full">
+                <form className="flex flex-col w-full" onSubmit={handleSignIn}>
                     <div className="flex flex-col" >
                         <label htmlFor="email" className="text-left">Email</label>
-                        <input type="email" name="email" placeholder="Enter your email" className="inputs-border outline-none border-none text-lg bg-transparent py-2 px-2 my-3"/>
+                        <input type="email" name="email" ref={emailRef} placeholder="Enter your email" className="inputs-border outline-none border-none text-lg bg-transparent py-2 px-2 my-3"/>
                     </div>
                     <div className="flex flex-col w-full">
                         <label htmlFor="password" className="text-left">Password</label>
-                        <input type="password" name="password" placeholder="Enter Your Password" className="inputs-border outline-none border-none text-lg bg-transparent py-2 px-2 my-3"/>
+                        <input type="password" name="password" ref={passwordRef} placeholder="Enter Your Password"  className="inputs-border outline-none border-none text-lg bg-transparent py-2 px-2 my-3"/>
                     </div>
                     <div className="flex">
                         <div className="w-1/2 flex justify-start items-center">
-                            <input className="ml-1" type="checkbox"/>
+                            <input className="ml-1" type="checkbox" name="rememberMe" ref={rememberRef}/>
                             <p className="ml-3">Remember me</p>
                         </div>
                         <div className="w-1/2 flex justify-end">
