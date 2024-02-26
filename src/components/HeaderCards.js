@@ -1,34 +1,34 @@
-import React, { useEffect } from 'react'
-import htmlImg from '../Assets/HTML_logo.svg'
-import cssImg from '../Assets/CSS_logo.svg'
-import jsImg from '../Assets/JS_logo.svg'
+import React, { useEffect } from 'react';
+import htmlImg from '../Assets/HTML_logo.svg';
+import cssImg from '../Assets/CSS_logo.svg';
+import jsImg from '../Assets/JS_logo.svg';
 
 function HeaderCards() {
     const displayingCard = (e) => {
-        e.currentTarget.classList.add('translate-x-36', 'transition-all', 'duration-1000', 'linear')
+        e.currentTarget.classList.add('translate-x-36', 'transition-all', 'duration-1000', 'linear');
 
-        let content = e.currentTarget.parentElement.nextElementSibling
-        content.classList.remove('hidden')
+        let content = e.currentTarget.parentElement.nextElementSibling;
+        content.classList.remove('hidden');
         setTimeout(() => {
-            content.children[0].classList.remove('opacity-0', '-z-[1]', '-translate-y-24')
-            content.children[0].classList.add('translate-y-0', 'opacity-1', 'transition-all', 'duration-1000', 'linear')
+            content.children[0].classList.remove('opacity-0', '-z-[1]', '-translate-y-24');
+            content.children[0].classList.add('translate-y-0', 'opacity-1', 'transition-all', 'duration-1000', 'linear');
             setTimeout(() => {
-                content.children[1].classList.remove('opacity-0', '-z-[1]', '-translate-y-24')
-                content.children[1].classList.add('translate-y-0', 'opacity-1', 'transition-all', 'duration-1000', 'linear')
+                content.children[1].classList.remove('opacity-0', '-z-[1]', '-translate-y-24');
+                content.children[1].classList.add('translate-y-0', 'opacity-1', 'transition-all', 'duration-1000', 'linear');
                 setTimeout(() => {
-                    content.children[2].classList.remove('opacity-0', '-z-[1]', '-translate-y-24')
-                    content.children[2].classList.add('translate-y-0', 'opacity-1', 'transition-all', 'duration-1000', 'linear')    
+                    content.children[2].classList.remove('opacity-0', '-z-[1]', '-translate-y-24');
+                    content.children[2].classList.add('translate-y-0', 'opacity-1', 'transition-all', 'duration-1000', 'linear');    
                     setTimeout(() => {
-                        content.parentElement.classList.add('card-styling')
+                        content.parentElement.classList.add('card-styling');
                         setTimeout(() => {
-                            content.previousElementSibling.classList.add('card-img'); 
+                            content.previousElementSibling.classList.add('card-img');
                             content.parentElement.parentElement.classList.add('card-borders');   
                         }, 1200);
                     }, 500);            
                 }, 500);
             }, 500);
         }, 500);
-    }
+    };
 
     return (
         <div className='container max-w-7xl mx-auto text-center'>
@@ -103,4 +103,4 @@ function HeaderCards() {
     );
 }
 
-export default HeaderCards
+export default HeaderCards;

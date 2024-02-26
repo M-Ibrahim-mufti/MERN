@@ -1,22 +1,24 @@
 import React from "react";
-import "../App.css"
-import headerImg from '../Assets/Brain.svg'
+import "../App.css";
+import headerImg from '../Assets/Brain.svg';
+
 function Header () {
     const imgMove = (e) => {
-        e.currentTarget.classList.add('img-move')
-        let hText = document.getElementById('h-text')
-        hText.classList.remove('-translate-x-[1000px]')
-        hText.classList.add('translate-x-0', 'transition-transform', "duration-[1s]", 'linear')
-        let brain = document.getElementById('brain')
-        brain.classList.remove('brain-pulsing')
+        e.currentTarget.classList.add('img-move');
+        let hText = document.getElementById('h-text');
+        hText.classList.remove('-translate-x-[1000px]');
+        hText.classList.add('translate-x-0', 'transition-transform', "duration-[1s]", 'linear');
+        let brain = document.getElementById('brain');
+        brain.classList.remove('brain-pulsing');
         setTimeout(()=> {
-            brain.classList.remove('brain-pulsing')
+            brain.classList.remove('brain-pulsing');
         },4000)
 
-        let headingText = document.getElementById('heading-text')
-        headingText.classList.remove('opacity-0')
-        headingText.classList.add('opacity-1', 'transition-opacity', 'duration-[1.7s]', 'linear')
-    }
+        let headingText = document.getElementById('heading-text');
+        headingText.classList.remove('opacity-0');
+        headingText.classList.add('opacity-1', 'transition-opacity', 'duration-[1.7s]', 'linear');
+    };
+
     return (
         <div className="container max-w-full py-16 mx-auto text-white">
             <div className="w-full text-lg h-full flex items-center justify-between py-14 text-[#9b9b9b]">
@@ -38,4 +40,4 @@ function Header () {
     );
 }
 
-export default Header
+export default Header;

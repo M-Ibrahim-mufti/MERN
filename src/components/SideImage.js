@@ -37,4 +37,4 @@ function sideImage() {
     );
 }
 
-export default sideImage
+export default sideImage;

@@ -7,20 +7,19 @@ body {
 html::-webkit-scrollbar{
   width: 7px;
 }
-/* Track */
+
 html::-webkit-scrollbar-track {
   background: rgba(17,58,89,0.5);
 }
 
-/* Handle */
 html::-webkit-scrollbar-thumb {
   background: rgba(11,39,61,0.7);
 }
 
-/* Handle on hover */
 html::-webkit-scrollbar-thumb:hover {
   background: rgba(255,255,255,0.7);
 }
+
 /* Navbar */
 
 .nav-ul{
@@ -28,18 +27,61 @@ html::-webkit-scrollbar-thumb:hover {
   padding-bottom: 1px;
 }
 .bg-nav {
-  background: linear-gradient(23deg, rgba(17,58,89,1) 39%, rgba(11,39,61,1) 61%);
   animation: animate-nav .5s linear forwards;
 }
 @keyframes animate-nav {
   0% {
-    height: 56px;
+    background: none;
+    height: 66px;
   }  
   100% {
-    height: 46px;
+    background: linear-gradient(23deg, rgba(17,58,89,1) 39%, rgba(11,39,61,1) 61%);
+    height: 56px;
   }
 }
 
+.nav-btn{
+  position: relative;       
+}
+
+.nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-100deg);
+  width: 38px;
+  height: 40px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+  border-radius: 50%;
+}
+
+.nav-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-210deg);
+  width: 42px;
+  height: 44px;
+  border-top-width: 2px;
+  border-left-width: 1px;
+  border-radius: 50%;
+}
+
+.nav-btn:hover{
+  animation: rotation-btn 5s linear infinite;
+}
+
+@keyframes rotation-btn {
+  0%{
+    transform: rotate(90deg);
+  }
+  100%{
+    transform: rotate(450deg);
+  }
+}
 /* Authenticate */
 
 .auth-img{
@@ -331,6 +373,7 @@ input[type="checkbox"]:checked {
   z-index: 10;
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0 , 0.5),
               10px 0 20px -5px rgba(0, 0, 0 , 0.5);
+  
 }
 
 .card-borders::before {
@@ -424,6 +467,33 @@ input[type="checkbox"]:checked {
 
 .side-img3::before {
   background-image: url('./Assets/section_2_JSwebp.webp');
+}
+
+/* Footer */
+
+.bg-footer{
+  background-color: rgba(17,58,89,0.5);
+}
+
+
+footer svg g {
+  fill: rgba(11,39,61,1) !important;
+}
+
+footer svg g:hover {
+   fill: white !important;
+   transition: all .5s linear; 
+}
+
+/* Services */
+
+.head-img {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.path-shadow{
+  box-shadow: 3px 5px 29px 14px rgba(34,90,133,1);
 }
 
 

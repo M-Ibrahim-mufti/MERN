@@ -1,26 +1,27 @@
 import '../App.css';
 import React from 'react';
-import Header from '../components/Header'; 
 import { useState } from 'react';
+import Header from '../components/Header'; 
 import HeaderCards from '../components/HeaderCards';
 import SideImage from '../components/SideImage';
+import Footer from '../components/footer';
 
 function Home () {
-    const [bgStay, setBgStay] = useState(false)
+    const [bgStay, setBgStay] = useState(false);
     const brainDisplay = () => {
         setBgStay(true)
-        let brain = document.getElementById("brain")
-        brain.classList.remove('-z-10')
-        brain.firstChild.classList.remove('opacity-0')
-        brain.firstChild.classList.add('opacity-1', 'transition-opacity', 'duration-1000', 'linear' )
+        let brain = document.getElementById("brain");
+        brain.classList.remove('-z-10');
+        brain.firstChild.classList.remove('opacity-0');
+        brain.firstChild.classList.add('opacity-1', 'transition-opacity', 'duration-1000', 'linear' );
         setTimeout(() => {
-            brain.classList.add('brain-pulsing')
+            brain.classList.add('brain-pulsing');
         }, 2500);
-    }
+    };
 
     const bgPositioning = (e) => {
-        e.currentTarget.classList.add('bg-positioning')
-    }
+        e.currentTarget.classList.add('bg-positioning');
+    };
     
     return(
         <div>
@@ -28,13 +29,16 @@ function Home () {
                 <Header/>
             </header>
             <section className='py-20'>
-                <HeaderCards/>
-            </section>
-            <section className='py-20'>
                 <SideImage/>
             </section>
+            <section className='py-20'>
+                <HeaderCards/>
+            </section>
+            <footer className='py-10 bg-footer'>
+                <Footer/>
+            </footer>
         </div>
     );
 }
 
-export default Home
+export default Home;

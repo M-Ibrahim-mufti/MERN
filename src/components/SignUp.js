@@ -1,10 +1,12 @@
 import React from "react";
+import '../App.css';
 
 function SignUp(props) {
+
     const sendActivation = () => {
-        const sendActivationData = "SignUp"
-        props.getData(sendActivationData)
-    }
+        const sendActivationData = "SignUp";
+        props.getData(sendActivationData);
+    };
 
     return (
         <div className="text-[#00cccc]">
@@ -40,4 +42,4 @@ function SignUp(props) {
     );
 }
 
-export default SignUp
+export default SignUp;
