@@ -8,10 +8,6 @@ function SignIn(props) {
     const passwordRef = useRef()
     const rememberRef = useRef()
 
-    const iconStyle={
-        mixBlendMode:"normal"
-    };
-
     //Methods
 
     const sendActivation = () => {
