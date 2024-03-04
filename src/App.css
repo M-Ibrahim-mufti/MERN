@@ -22,10 +22,6 @@ html::-webkit-scrollbar-thumb:hover {
 
 /* Navbar */
 
-.nav-ul{
-  border-bottom: 1px solid white;
-  padding-bottom: 1px;
-}
 .bg-nav {
   animation: animate-nav .5s linear forwards;
 }
@@ -82,6 +78,39 @@ html::-webkit-scrollbar-thumb:hover {
     transform: rotate(450deg);
   }
 }
+.nav-ul {
+  position: relative;
+}
+
+.nav-ul::before{
+  position: absolute;
+  left:50%;
+  top:60%;
+  transform: translate(-50%, -25%);
+  content: "";
+  width: 160%;
+  height: 80%;
+  border: 1px solid white;
+  border-top: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  z-index: -10;
+  animation: link-border .2s linear forwards
+}
+
+@keyframes link-border {
+  0% {
+    width:0;
+    height: 0;
+  }
+  100% {
+    width: 160%;
+    height: 80%;
+  }
+  
+}
 /* Authenticate */
 
 .auth-img{
@@ -131,7 +160,7 @@ input[type="checkbox"]:checked {
 }
 
 
-#authBtn:hover{
+.auth-btn:hover{
   animation: expand .6s forwards;
   font-size: 20px;
 }
@@ -323,7 +352,7 @@ input[type="checkbox"]:checked {
     width: 0;
   }  
   70%, 90% {
-    width:100.45%;
+    width:100%;
   }
 }
 

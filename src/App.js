@@ -1,13 +1,13 @@
 import './App.css';
 import Navbar from "./components/Navbar"
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home"
 import Services from "./pages/Services"
 import Plans from "./pages/Plans"
 import Contact from "./pages/Contact"
 import About from "./pages/About"
 import Authenticate from "./pages/Authenticate"
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 function App() {
   return(
@@ -20,27 +20,49 @@ function App() {
 function Main() {
 
   const [activeNav, setNavValue] = useState(false);
+  const [userActive, setUserActive] = useState(() => {
+    // Initialize userActive state from localStorage or a default value
+    const storedUserActive = localStorage.getItem('userActive');
+    return storedUserActive ? JSON.parse(storedUserActive) : false;
+  });  
+
+  const activateNav = () => {
+    setNavValue(true)     
+  }
+  const activeUser = () => {
+    setUserActive(true)
+  }
+  const deactiveUser = () => {
+    setUserActive(false)
+  }
+  const PrivateRoute = ({element}) => {
+    return userActive ? element : <Navigate to="/Authentication"/>
+  }
 
   useEffect(()=> {
-
     if (window.location.pathname === "/Authentication"){
       setNavValue(false)
     }
     else {
       setNavValue(true)
     }
-  },[window.location.pathname])
+  },[])
+
+  useEffect(() => {
+    localStorage.setItem('userActive', JSON.stringify(userActive));
+  }, [userActive]);
+
   return (
     <div className='bg-body'>
-      {activeNav && <Navbar/>}
+      {activeNav && <Navbar destroySession={deactiveUser}/>}
       <div className=''>
           <Routes>
-            <Route path='/' element={<Home />}></Route>
-            <Route path='/Services' element={<Services />}></Route>
-            <Route path='/Plans' element={<Plans />}></Route>
-            <Route path='/Contact' element={<Contact />}></Route>
-            <Route path='/About' element={<About />}></Route>
-            <Route path='/Authentication' element={<Authenticate />}></Route>
+            <Route path='/' element={<PrivateRoute element={<Home/>}/>}></Route>
+            <Route path='/Services' element={<PrivateRoute element={<Services/>}/>}></Route>
+            <Route path='/Plans' element={<PrivateRoute element={<Plans />}/>}></Route>
+            <Route path='/Contact' element={<PrivateRoute element={<Contact/>}/>}></Route>
+            <Route path='/About' element={<PrivateRoute element={<About />}/>}></Route>
+            <Route path='/Authentication' element={<Authenticate activeNav={activateNav} userActive={activeUser} />}></Route>
           </Routes>
       </div>
     </div>

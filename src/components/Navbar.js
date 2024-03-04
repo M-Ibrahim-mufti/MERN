@@ -67,6 +67,7 @@ function Navbar(prop) {
                     <li className="opacity-0 -translate-y-14 "><Link to="/Plans" className={`${activeLink === "/Plans" ? "nav-ul text-white" : ""} text-[#9b9b9b] hover:text-white transition-all duration-500 ease-linear`}>Plans</Link></li>
                     <li className="opacity-0 -translate-y-14 "><Link to="/Contact" className={`${activeLink === "/Contact" ? "nav-ul text-white" : ""} text-[#9b9b9b] hover:text-white transition-all duration-500 ease-linear`}>Contact</Link></li>
                     <li className="opacity-0 -translate-y-14 "><Link to="/About" className={`${activeLink === "/About" ? "nav-ul text-white" : ""} text-[#9b9b9b] hover:text-white transition-all duration-500 ease-linear`}>About</Link></li>
+                    <li><button></button></li>
                 </ul>
                 <div className="w-full flex justify-center items-center">
                     <button onClick={navVisibility} className="nav-btn w-[32px] h-[30px] rounded-full border-t-2 border-r-2 rotate-90"></button>

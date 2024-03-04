@@ -1,5 +1,5 @@
 import '../App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Header from '../components/Header'; 
 import HeaderCards from '../components/HeaderCards';
@@ -22,7 +22,7 @@ function Home () {
     const bgPositioning = (e) => {
         e.currentTarget.classList.add('bg-positioning');
     };
-    
+
     return(
         <div>
             <header className={`bg-header ${bgStay ? 'bg-stay' : ''} `} onMouseEnter={bgPositioning} onTransitionEnd={brainDisplay}>

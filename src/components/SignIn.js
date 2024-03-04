@@ -1,19 +1,50 @@
-import React, {useRef} from "react";
-
+import React, {useRef, useState} from "react";
+import { useNavigate } from "react-router-dom"
+import {v4} from 'uuid'
+import axios from 'axios'
 
 function SignIn(props) {
-    
     // Variables
     const emailRef = useRef()
     const passwordRef = useRef()
     const rememberRef = useRef()
-
+    const navigate = useNavigate()
+    const [errMessage, setErrMessage] = useState(true)
     //Methods
 
     const sendActivation = () => {
         const sendActivationData = "SignIn";
         props.getData(sendActivationData);
     };
+
+    const handleSignIn = async (event) => {
+        event.preventDefault();
+        try{
+            const response = await axios.get('http://localhost:5000/',
+                {
+                    params: {
+                            email: emailRef.current.value,
+                            password: passwordRef.current.value
+                    }
+                } 
+            );
+            const userData = response.data;
+            if (userData && userData.length > 0) {
+                const token = v4()
+                localStorage.setItem('auth_token', token)
+                props.userActive();
+                props.activeNav();
+                navigate('/');
+            }
+            else {
+                setErrMessage(false)
+            }
+
+        } catch(error) {
+            console.log(error)
+        }
+
+    }
 
     const iconStyle={
         mixBlendMode:"normal"
@@ -53,7 +84,8 @@ function SignIn(props) {
                         </a>
                     </div>
                 </div>
-                <form className="flex flex-col w-full" onSubmit={handleSignIn}>
+                { !errMessage && <p>Invalid email or password</p> }
+                <form className="flex flex-col w-full" onSubmit={handleSignIn} onClick={() => setErrMessage(true)}>
                     <div className="flex flex-col" >
                         <label htmlFor="email" className="text-left">Email</label>
                         <input type="email" name="email" ref={emailRef} placeholder="Enter your email" className="inputs-border outline-none border-none text-lg bg-transparent py-2 px-2 my-3"/>
@@ -72,7 +104,7 @@ function SignIn(props) {
                         </div>
                     </div>
                     <div className="mt-5 w-full">
-                        <button id="authBtn" className="text-xl btn-box bg-transparent"> Sign In</button>
+                        <button className="auth-btn text-xl btn-box bg-transparent"> Sign In</button>
                     </div>
                 </form>
             </div>   
