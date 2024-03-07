@@ -19,11 +19,12 @@ function SignIn(props) {
 
     const handleSignIn = async (event) => {
         event.preventDefault();
+        console.log(emailRef.current.value.toLowerCase())
         try{
             const response = await axios.get('http://localhost:5000/',
                 {
                     params: {
-                            email: emailRef.current.value,
+                            email: emailRef.current.value.toLowerCase(),
                             password: passwordRef.current.value
                     }
                 } 

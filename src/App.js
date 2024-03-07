@@ -7,7 +7,7 @@ import Plans from "./pages/Plans"
 import Contact from "./pages/Contact"
 import About from "./pages/About"
 import Authenticate from "./pages/Authenticate"
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   return(
@@ -19,26 +19,38 @@ function App() {
 
 function Main() {
 
+  // Variables 
   const [activeNav, setNavValue] = useState(false);
+
+  // Setting value of userActive based on the page by parsing it from json else it will be set to false
   const [userActive, setUserActive] = useState(() => {
     // Initialize userActive state from localStorage or a default value
     const storedUserActive = localStorage.getItem('userActive');
     return storedUserActive ? JSON.parse(storedUserActive) : false;
   });  
 
+  // Setting value of navbar such that if it is true it will be displayed else it will not
   const activateNav = () => {
     setNavValue(true)     
   }
+
+  // Setting value of active user such as when the user is logged in they can access all the pages 
   const activeUser = () => {
     setUserActive(true)
   }
+
+  // Setting value of active user such as when the user is logged out they can not access all the pages except authentication 
   const deactiveUser = () => {
     setUserActive(false)
+    window.location.reload();
   }
+
+  // Creating Private routes such that these routes are only accessible if user is authenticated
   const PrivateRoute = ({element}) => {
     return userActive ? element : <Navigate to="/Authentication"/>
   }
 
+  // setting value of navbar if the page is authenticated it will not be visible
   useEffect(()=> {
     if (window.location.pathname === "/Authentication"){
       setNavValue(false)
@@ -48,6 +60,7 @@ function Main() {
     }
   },[])
 
+  //  Function that handle the userActive  status and save it into the local storage
   useEffect(() => {
     localStorage.setItem('userActive', JSON.stringify(userActive));
   }, [userActive]);
