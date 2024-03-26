@@ -21,7 +21,7 @@ function SignIn(props) {
         event.preventDefault();
         console.log(emailRef.current.value.toLowerCase())
         try{
-            const response = await axios.get('http://localhost:5000/',
+            const response = await axios.get('http://localhost:5000/login',
                 {
                     params: {
                             email: emailRef.current.value.toLowerCase(),
