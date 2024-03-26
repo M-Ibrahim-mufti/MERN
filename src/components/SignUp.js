@@ -30,7 +30,7 @@ function SignUp(props) {
             try {    
 
                 // making api call using axios to backend server which localhost:5000 sending value of the entered input fields 
-                const response = await axios.post('http://localhost:5000/', 
+                const response = await axios.post('http://localhost:5000/register', 
                     { 
                         name: nameRef.current.value,
                         email:  emailRef.current.value, 
