@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../App.css";
 import headerImg from '../Assets/Brain.svg';
 
-function Header () {
+function Header () {   
     const imgMove = (e) => {
         e.currentTarget.classList.add('img-move');
         let hText = document.getElementById('h-text');

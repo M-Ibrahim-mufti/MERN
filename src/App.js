@@ -8,6 +8,7 @@ import Contact from "./pages/Contact"
 import About from "./pages/About"
 import Authenticate from "./pages/Authenticate"
 import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 function App() {
   return(
@@ -21,7 +22,7 @@ function Main() {
 
   // Variables 
   const [activeNav, setNavValue] = useState(false);
-
+  const [currentUser, setCurrentUser] = useState({});
   // Setting value of userActive based on the page by parsing it from json else it will be set to false
   const [userActive, setUserActive] = useState(() => {
     // Initialize userActive state from localStorage or a default value

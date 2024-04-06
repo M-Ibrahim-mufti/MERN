@@ -40,7 +40,7 @@ function PagesHeader (prop) {
                 <h2 className={`${prop.textSize} font-bold text-center`}>{prop.pageName}</h2>
                 <p className="text-xl">{prop.pageDesc}</p>
             </div>
-            <div className="head-img w-[50%] h-[600px] relative -left-20">
+            <div className="head-img w-[50%] h-[600px] relative -left-16">
                 <svg version="1.1" id="Layer_1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1411 1772" enableBackground="new 0 0 1411 1772">
                     <path fill="none" opacity="1.000000" stroke="rgb(17,58,89)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="15.000000"
                         d="

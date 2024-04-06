@@ -4,14 +4,15 @@ import {v4} from 'uuid'
 import axios from 'axios'
 
 function SignIn(props) {
+
     // Variables
     const emailRef = useRef()
     const passwordRef = useRef()
     const rememberRef = useRef()
     const navigate = useNavigate()
     const [errMessage, setErrMessage] = useState(true)
+    
     //Methods
-
     const sendActivation = () => {
         const sendActivationData = "SignIn";
         props.getData(sendActivationData);
@@ -19,7 +20,6 @@ function SignIn(props) {
 
     const handleSignIn = async (event) => {
         event.preventDefault();
-        console.log(emailRef.current.value.toLowerCase())
         try{
             const response = await axios.get('http://localhost:5000/login',
                 {
@@ -42,7 +42,7 @@ function SignIn(props) {
             }
 
         } catch(error) {
-            console.log(error)
+            setErrMessage(false)
         }
 
     }

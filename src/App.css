@@ -265,39 +265,6 @@ input[type="checkbox"]:checked {
   background-position-y: 45% !important;
 }
 
-.bg-header::before{
-  content: '';
-  position:absolute;
-  height: 100%;
-  width: 20px;
-  top:0;
-  left:-110%;
-  filter: blur(35px);
-  transform: translate(-50%, -50%) rotateZ(108deg);
-  background-color: rgb(255, 255, 255, 0.3);
-  border:none;
-  animation: shine 9s linear infinite;
-}
-
-@keyframes shine {
-  from {
-    top: 0%;
-    left:110%;
-    height: 100%;
-
-  } 
-  50% {
-    top: 50%;
-    left: 56%;
-    height: 500%;
-  }
-  to {
-    top: 100%;
-    left: 0%;
-    height: 100%;
-  }
-}
-
 .img-shadows{
   filter: 
   drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3))
@@ -525,4 +492,68 @@ footer svg g:hover {
   box-shadow: 3px 5px 29px 14px rgba(34,90,133,1);
 }
 
+.plan-head{
+  position: relative;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 36px 0px, 
+              rgba(0, 0, 0, 0.35) 0px 0px 0px 1px;
+}
+
+.plan-head::before {
+  position: absolute;
+  content: "";
+  width: 300px;
+  background-color: white;
+  height: 46px;
+  top: -50px;
+  left: -80px;
+  transform:rotate(140deg);
+}
+
+.plan-head:hover:before{
+  height: 76px;
+  transition: all .5s linear;
+}
+.plan-head:not(:hover):before {
+  height: 46px;
+  transition: all .5s linear;
+}
+
+.plan-head::after {
+  position: absolute;
+  content: "";
+  width: 300px;
+  background-color: white;
+  height: 46px;
+  bottom: -50px;
+  right: -80px;
+  transform:rotate(140deg);
+}
+
+.plan-head:hover:after {
+  height: 76px;
+  transition: all .5s linear;
+}
+
+.plan-head:not(:hover):after {
+  height: 46px;
+  transition: all .5s linear;
+}
+
+/* Contact Form */
+
+.input-label{
+  position: absolute;
+  top:17px;
+  left:14.5px;
+  font-size: 18px;
+  background-color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: all .3s linear;
+  background-color: rgb(11,39,61);
+  color: rgba(255,255,255,0.6);
+  z-index: -1;
+
+}
 

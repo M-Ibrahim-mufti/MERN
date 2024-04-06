@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import HeaderCards from '../components/HeaderCards';
 import SideImage from '../components/SideImage';
 import Footer from '../components/footer';
+import { axios } from 'axios';
 
 function Home () {
     const [bgStay, setBgStay] = useState(false);

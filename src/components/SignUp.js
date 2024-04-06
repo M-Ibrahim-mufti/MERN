@@ -15,52 +15,55 @@ function SignUp(props) {
         const sendActivationData = "SignUp"
         props.getData(sendActivationData)
     };
-
+    const [errors, setErrors] = useState("");
     // for router push we use useNavigate() hook
     const navigation = useNavigate();
 
     // Method for handling submission event
     const handleSignUp = async (event) => {
         event.preventDefault();
+        // Added exceptional handling so that it is easy to notify if the code working or not  
+        try {    
 
-        // Check if both password enter are same or not 
-        if (passwordRef.current.value === rePasswordRef.current.value) {
+            // Check if both password enter are same or not 
+            if ((passwordRef.current.value === rePasswordRef.current.value) && 
+                (nameRef.current.value !== "" && emailRef.current.value !== '' && passwordRef.current.value !== '')) {
 
-            // Added exceptional handling so that it is easy to notify if the code working or not  
-            try {    
+                    // making api call using axios to backend server which localhost:5000 sending value of the entered input fields 
+                    const response = await axios.post('http://localhost:5000/register', 
+                        { 
+                            name: nameRef.current.value,
+                            email:  emailRef.current.value, 
+                            password: passwordRef.current.value
+                        }
+                    )
+                    
+                    props.activeNav();
+                    props.userActive();
+                    // on successful SIgn up pushing to Home page 
+                    navigation('/')
+                } else {
 
-                // making api call using axios to backend server which localhost:5000 sending value of the entered input fields 
-                const response = await axios.post('http://localhost:5000/register', 
-                    { 
-                        name: nameRef.current.value,
-                        email:  emailRef.current.value, 
-                        password: passwordRef.current.value
+                    // For displaying message on box that password do not match
+                    setSuccessReg(false)
+                    if (passwordRef.current.value !== rePasswordRef.current.value) {
+                        throw "Password does not Match!"
                     }
-                )
-                
-                props.activeNav();
-                props.userActive();
-                // on successful SIgn up pushing to Home page 
-                navigation('/')
+                    if (nameRef !== "" || emailRef !== '' || passwordRef !== '' ) {
+                        throw "field cannot be blanked";
+                    }
+                } 
             } catch (error) {
-
                 // Catch error if exist any and display on the console 
-                console.log(error)
+                setErrors(error);
             }
-        }
-        else {
-
-            // For displaying message on box that password do not match
-            setSuccessReg(false)
-        }
 
     }
-
     return (
         <div className="text-[#00cccc]">
             <div className="py-14 text-center mx-6">
                 <h2 className="text-3xl font-extrabold mb-4">SIGN UP</h2>
-                {!successReg && <p className="text-center text-[#00cccc83]">Password do not match Please re-enter your password</p>}
+                {!successReg && <p className="text-center text-[#00cccc83]">{ errors }</p>}
                 <form className="flex flex-col w-full" onSubmit={handleSignUp} onClick={() => setSuccessReg(true)}>
                     <div className="flex flex-col" >
                         <label htmlFor="name" className="text-left">Name</label>
