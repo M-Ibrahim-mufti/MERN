@@ -1,7 +1,20 @@
 import React, { useEffect } from "react";
 import "../App.css";
+import anime from "animejs";
 
 function PagesHeader (prop) {
+    const imgPathFormation = () => {
+        const svgPath = document.getElementById('Layer_1').childNodes;
+        svgPath.forEach((path) => {
+            anime({
+                targets: path,
+                strokeDashoffset: [anime.setDashoffset, 0],
+                easing:'linear',
+                duration: 3000,
+            })   
+        })
+        
+    }
     const pathColorization = () => {
         const svgPath = document.getElementById('Layer_1')
         var indexArr = [];
@@ -26,6 +39,7 @@ function PagesHeader (prop) {
     }
 
     useEffect(() => {
+        imgPathFormation();
         const randomization =  setInterval(() => {
             pathColorization();
         },3000)
@@ -35,12 +49,12 @@ function PagesHeader (prop) {
     }, [])
 
     return(
-        <div className="container flex max-w-6xl mx-auto text-white ">
+        <div className="container flex max-w-7xl mx-auto text-white">
             <div className="flex flex-col w-1/2 items-center justify-center gap-10">
                 <h2 className={`${prop.textSize} font-bold text-center`}>{prop.pageName}</h2>
                 <p className="text-xl">{prop.pageDesc}</p>
             </div>
-            <div className="head-img w-[50%] h-[600px] relative -left-20">
+            <div className="head-img w-[50%] h-[600px] relative -left-16">
                 <svg version="1.1" id="Layer_1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1411 1772" enableBackground="new 0 0 1411 1772">
                     <path fill="none" opacity="1.000000" stroke="rgb(17,58,89)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="15.000000"
                         d="
