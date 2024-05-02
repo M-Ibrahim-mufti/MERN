@@ -41,9 +41,9 @@ function Main() {
   }
 
   // Setting value of active user such as when the user is logged out they can not access all the pages except authentication 
-  const deactiveUser = () => {
-    setUserActive(false)
-    window.location.reload();
+  const deactiveUser = async () => {
+      setUserActive(false)
+      window.location.reload();
   }
 
   // Creating Private routes such that these routes are only accessible if user is authenticated
