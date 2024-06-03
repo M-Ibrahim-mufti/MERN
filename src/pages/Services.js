@@ -13,13 +13,15 @@ function Services () {
                 <PagesHeaders textSize={'text-4xl'} pageName={"Welcome to Our Services page"} pageDesc={headerDesc}/>
             </header>
             <section>
-                <h2 className='text-center font-bold text-4xl text-white mb-5'>About Our Services</h2>
-                <p className='w-1/2 text-white mx-auto text-center text-xl mb-5'>
-                    Here is the List of services And description of what we sell,
-                    how well we plan to satisfy our Customer with the most minimalistic Approach, We have well experienced group of individuals
-                    that holds a strong grip on Services
-                    In our services we include HTML CSS and JAVASCRIPT we provide the most efficient solutions for your needs.
-                </p>
+                <div className='w-full bg-footer py-20 mb-10'>
+                    <h2 className='text-center font-bold text-4xl text-white mb-5 max-md:text-2xl'>About Our Services</h2>
+                    <p className='w-1/2 text-white mx-auto text-center text-xl mb-5 max-md:w-3/4 max-md:text-lg'>
+                        Here is the List of services And description of what we sell,
+                        how well we plan to satisfy our Customer with the most minimalistic Approach, We have well experienced group of individuals
+                        that holds a strong grip on Services
+                        In our services we include HTML CSS and JAVASCRIPT we provide the most efficient solutions for your needs.
+                    </p>
+                </div>
                 <ServicesSection/>
             </section>
             <footer className='py-10 bg-footer'>

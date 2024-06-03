@@ -49,12 +49,12 @@ function PagesHeader (prop) {
     }, [])
 
     return(
-        <div className="container flex max-w-7xl mx-auto text-white">
-            <div className="flex flex-col w-1/2 items-center justify-center gap-10">
-                <h2 className={`${prop.textSize} font-bold text-center`}>{prop.pageName}</h2>
-                <p className="text-xl">{prop.pageDesc}</p>
+        <div className="container flex max-w-7xl mx-auto text-white max-xl:!max-w-5xl max-lg:!max-w-4xl max-md:!max-w-xl max-sm:!max-w-sm" >
+            <div className="flex flex-col w-1/2 items-center justify-center gap-10 max-md:w-full">
+                <h2 className={`${prop.textSize} font-bold text-center max-md:text-2xl`}>{prop.pageName}</h2>
+                <p className="text-xl max-md:text-lg">{prop.pageDesc}</p>
             </div>
-            <div className="head-img w-[50%] h-[600px] relative -left-16">
+            <div className="head-img w-[50%] h-[600px] relative -left-16 max-xl:h-[500px] max-lg:-left-0 max-md:hidden" >
                 <svg version="1.1" id="Layer_1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1411 1772" enableBackground="new 0 0 1411 1772">
                     <path fill="none" opacity="1.000000" stroke="rgb(17,58,89)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="15.000000"
                         d="
