@@ -387,7 +387,12 @@
     z-index: -10;
     animation: rotation 10s linear infinite;
     transform-origin: center;
+  }
 
+  @media (max-width: 768px) {
+    .card-borders::before{
+      height: 180%;
+    }
   }
 
   @keyframes rotation {
@@ -459,6 +464,13 @@
     background-size: contain;
   }
 
+  @media (max-width:640px) {
+    .side-img2::before{
+      width: 100px;
+      height: 100px;
+    }
+  }
+
   .side-img1::before {
     background-image: url('./Assets/section_2_HTML.webp');
   }
@@ -474,7 +486,7 @@
   /* Footer */
 
   .bg-footer{
-    background-color: rgba(17,58,89,0.5);
+    background-color: #0E304B;
   }
 
 
@@ -568,7 +580,8 @@
     position: relative;
     border:2px solid rgba(17,58,89,1);
     background-color: rgba(17,58,89,1);
-    animation: circle-display 4s linear forwards;
+    box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.75);
+    animation: circle-display 2s linear forwards;
   }
 
   @keyframes circle-display{
@@ -578,8 +591,8 @@
       opacity: 0;
     }
     100% {
-      width: 740px;
-      height: 740px;
+      width: 600px;
+      height: 600px;
       opacity: 1;
     }
   }
@@ -595,6 +608,8 @@
     z-index: 10;
     transform: translate(-50%, -50%);
     background-color: rgb(11,39,61);
+    box-shadow: inset 0 0 10px 5px 
+                    rgba(0, 0, 0, 0.5);
   }
 
   .circle-position {
@@ -605,28 +620,28 @@
   }
     
   @keyframes circle-animation1 {
-    0% { transform: rotate(0deg) translateY(-370px) rotate(0deg); }
-    100% { transform: rotate(290deg) translateY(-370px) rotate(-290deg); }
+    0% { transform: rotate(0deg) translateY(-300px) rotate(0deg); }
+    100% { transform: rotate(290deg) translateY(-300px) rotate(-290deg); }
   }
 
   @keyframes circle-animation2 {
-    0% { transform: rotate(0deg) translateY(-370px) rotate(0deg); }
-    100% { transform: rotate(70deg) translateY(-370px) rotate(-70deg); }
+    0% { transform: rotate(0deg) translateY(-300px) rotate(0deg); }
+    100% { transform: rotate(70deg) translateY(-300px) rotate(-70deg); }
   }
 
   @keyframes circle-animation3 {
-    0% { transform: rotate(0deg) translateY(-370px) rotate(0deg); }
-    100% { transform: rotate(140deg) translateY(-370px) rotate(-140deg); }
+    0% { transform: rotate(0deg) translateY(-300px) rotate(0deg); }
+    100% { transform: rotate(140deg) translateY(-300px) rotate(-140deg); }
   }
 
   @keyframes circle-animation4 {
-    0% { transform: rotate(0deg) translateY(-370px) rotate(0deg); }
-    100% { transform: rotate(220deg) translateY(-370px) rotate(-225deg); }
+    0% { transform: rotate(0deg) translateY(-300px) rotate(0deg); }
+    100% { transform: rotate(220deg) translateY(-300px) rotate(-225deg); }
   }
 
   @keyframes circle-animation5 {
-    0% { transform: rotate(0deg) translateY(-370px) rotate(0deg); }
-    100% { transform: rotate(360deg) translateY(-370px) rotate(-360deg); }
+    0% { transform: rotate(0deg) translateY(-300px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateY(-300px) rotate(-360deg); }
   }
   .circle-position:nth-child(1) {
     animation: circle-animation1 4s linear forwards ;
@@ -648,4 +663,64 @@
     animation: circle-animation5 4s linear forwards ;
   }
   
+#about-btn:hover{
+  transform: translateY(-5px);
+  transition: all .3s linear;
+}
 
+.about-box-shadows{
+  box-shadow: inset 0 0 10px 5px 
+            rgba(0, 0, 0, 0.5)
+}
+
+.about-box-points-5{
+  position: relative;
+}
+.about-box-points-5::before{
+  position: absolute;
+  content: "";
+  top: 83%;
+  left: -20px;
+  border: 10px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+  transform: rotate(-90deg);
+}
+
+.about-box-points-1{
+  position: relative;
+}
+.about-box-points-1::before{
+  position: absolute;
+  content: "";
+  bottom: 83%;
+  right: -20px;
+  border: 10px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+  transform: rotate(90deg);
+}
+
+.about-box-points-2{
+  position: relative;
+}
+
+.about-box-points-2::before{
+  position: absolute;
+  content: "";
+  bottom: 83%;
+  left: -20px;
+  border: 10px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+  transform: rotate(-90deg);
+}
+
+.reveal-description{
+  animation: reveal-box 1s linear forwards;
+}
+
+@keyframes reveal-box {
+  0%{ width: 0;}
+  100%{ width: 384px; }
+}

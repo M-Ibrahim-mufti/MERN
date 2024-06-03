@@ -77,6 +77,7 @@ function Main() {
             <Route path='/Contact' element={<PrivateRoute element={<Contact/>}/>}></Route>
             <Route path='/About' element={<PrivateRoute element={<About />}/>}></Route>
             <Route path='/Authentication' element={<Authenticate activeNav={activateNav} userActive={activeUser} />}></Route>
+            <Route path='*' element={<h2>Page Not Found</h2>}></Route>
           </Routes>
       </div>
     </div>

@@ -11,7 +11,7 @@ function Home () {
             <header className='py-20'>
                 <Header/>
             </header>
-            <section className='py-20'>
+            <section className='py-20 bg-footer'>
                 <SideImage/>
             </section>
             <section className='py-20'>

@@ -43,7 +43,7 @@ function footer() {
                     <ul className="flex flex-col gap-1">
                         <li><Link className="hover:text-white transition-colors duration-500 ease-linear" to={"/"}>Home</Link></li>
                         <li><Link className="hover:text-white transition-colors duration-500 ease-linear" to={"/Services"}>Services</Link></li>
-                        <li><Link className="hover:text-white transition-colors duration-500 ease-linear" to={"/Blogs"}>Blogs</Link></li>
+                        <li><Link className="hover:text-white transition-colors duration-500 ease-linear" to={"/plans"}>Blogs</Link></li>
                         <li><Link className="hover:text-white transition-colors duration-500 ease-linear" to={"/Contact"}>Contact Us</Link></li>
                         <li><Link className="hover:text-white transition-colors duration-500 ease-linear" to={"/About"}>About us</Link></li>
                     </ul>
@@ -53,7 +53,7 @@ function footer() {
                     <ul className="flex flex-col gap-1">
                         <li><Link className="hover:text-white transition-colors duration-500 ease-linear" to={"/"}>About our website ?</Link></li>
                         <li><Link className="hover:text-white transition-colors duration-500 ease-linear" to={"/Services"}>What do we provide ?</Link></li>
-                        <li><Link className="hover:text-white transition-colors duration-500 ease-linear" to={"/Blogs"}>Find our Specialties</Link></li>
+                        <li><Link className="hover:text-white transition-colors duration-500 ease-linear" to={"/plans"}>Find our Specialties</Link></li>
                         <li><Link className="hover:text-white transition-colors duration-500 ease-linear" to={"/Contact"}>How to get in touch with us ?</Link></li>
                         <li><Link className="hover:text-white transition-colors duration-500 ease-linear" to={"/About"}>Who are we ?</Link></li>
                     </ul>
